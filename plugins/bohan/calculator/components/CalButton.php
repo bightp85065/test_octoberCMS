@@ -1,6 +1,7 @@
 <?php namespace BoHan\Calculator\Components;
 use Cms\Classes\ComponentBase;
 use BoHan\Calculator\Models\Settings;
+use BoHan\Calculator\Models\Calculate as CalculateModel;
 class CalButton extends ComponentBase
 {
     public function componentDetails()
@@ -100,6 +101,15 @@ class CalButton extends ComponentBase
             ]
         ];
     }
+    
+    public function doMinus(){
+        
+//        $number1 = $("#number1").val();
+        
+//        CalculateModel::minus(,$("#number2").val());
+    }
+    
+    
     public function onRun()
     {
         $content = $this->renderPartial('default.htm');
