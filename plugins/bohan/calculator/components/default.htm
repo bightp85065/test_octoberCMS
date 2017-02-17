@@ -1,4 +1,4 @@
-<div>
+<form>
    <h2>{{ __SELF__.property('name') }}</h2>
    <div><h4>{{ __SELF__.property('description') }}</h4></div>
    <input id="number1" type="number">
@@ -11,7 +11,7 @@
    {{__SELF__.property('plusHtml')}}
    </button>
    <button
-       data-request="{{ __SELF__ }}::doMinus"
+       data-request="{{ __SELF__ }}::onDoMinus"
        class="button"
        data-item-id="{{ __SELF__.property('minusId') }}"
        data-item-name="{{ __SELF__.property('minusName') }}"
@@ -34,11 +34,34 @@
    </button>
    
    <input id="number2" type="number">
-   <button
-       class="snipcart-add-item"
-       data-item-id="{{ __SELF__.property('id') }}"
-       data-item-name="{{ __SELF__.property('name') }}"
-       data-item-description="{{ __SELF__.property('description')}}">
-   {{__SELF__.property('anwser')}}
-   </button>
-</div>
+   AWS:<p class="snipcart-add-item"
+       data-item-id="{{ __SELF__.property('awsId') }}"
+       data-item-name="{{ __SELF__.property('awsName') }}"
+       data-item-description="{{ __SELF__.property('awsDescription')}}">
+   </p>
+</form>
+<script>
+    $('#plusId').request('onDoPlus', {data: {number1: $("#number1").val(),number2: $("#number2").val()},
+        success: function(data) {
+            printAws(data);
+        }
+    });
+    $('#minusId').request('onDoMinus', {data: {number1: $("#number1").val(),number2: $("#number2").val()},
+        success: function(data) {
+            printAws(data);
+        }
+    });
+    $('#multiplyId').request('onDoMultiply', {data: {number1: $("#number1").val(),number2: $("#number2").val()},
+        success: function(data) {
+            printAws(data);
+        }
+    });
+    $('#dividedId').request('onDoDivided', {data: {number1: $("#number1").val(),number2: $("#number2").val()},
+        success: function(data) {
+            printAws(data);
+        }
+    });
+    function printAws(aws){
+        $("#awsId").html(aws);
+    }
+</script>

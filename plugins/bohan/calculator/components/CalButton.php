@@ -95,18 +95,41 @@ class CalButton extends ComponentBase
                 'title'             => 'dividedHtml',
             ],
             
-            'anwser' => [
-                'description'       => 'Get the anwser',
-                'title'             => '=',
-            ]
+            'awsId' => [
+                'description'       => 'The aws id',
+                'title'             => 'awsId',
+            ],
+            'awsName' => [
+                'description'       => 'The aws name',
+                'title'             => 'awsName',
+            ],
+            'awsDescription' => [
+                'description'       => 'The aws description',
+                'title'             => 'awsDescription',
+            ],
+            
         ];
     }
     
-    public function doMinus(){
-        
-//        $number1 = $("#number1").val();
-        
-//        CalculateModel::minus(,$("#number2").val());
+    public function onDoPlus(){
+        $number1 = isset($_REQUEST["number1"])?$_REQUEST["number1"]:0;
+        $number2 = isset($_REQUEST["number2"])?$_REQUEST["number2"]:0;
+        return CalculateModel::plus($number1,$number2);
+    }
+    public function onDoMinus(){
+        $number1 = isset($_REQUEST["number1"])?$_REQUEST["number1"]:0;
+        $number2 = isset($_REQUEST["number2"])?$_REQUEST["number2"]:0;
+        return CalculateModel::minus($number1,$number2);
+    }
+    public function onDoMultiply(){
+        $number1 = isset($_REQUEST["number1"])?$_REQUEST["number1"]:0;
+        $number2 = isset($_REQUEST["number2"])?$_REQUEST["number2"]:0;
+        return CalculateModel::multiply($number1,$number2);
+    }
+    public function onDoDivided(){
+        $number1 = isset($_REQUEST["number1"])?$_REQUEST["number1"]:0;
+        $number2 = isset($_REQUEST["number2"])?$_REQUEST["number2"]:0;
+        return CalculateModel::divided($number1,$number2);
     }
     
     
