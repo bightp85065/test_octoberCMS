@@ -17,7 +17,7 @@ class Calculate
         return $number1+$number2;
     }
     
-    public function subtract($number1,$number2)
+    public function minus($number1,$number2)
     {
         if (!isset($number1)||!isset($number2)) {
             return 0;
